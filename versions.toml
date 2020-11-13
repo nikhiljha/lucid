@@ -1,0 +1,5 @@
+# This is a pretty simple TOML file to keep track of versions.
+# Try to keep it sorted alphabetically.
+
+argocd = "1.7.8"
+tekton = "0.18.0"
