@@ -4,7 +4,7 @@ import sys
 sys.path.append(".")
 
 # Deployment Infrastructure
-from infra import tekton
+from infra import tekton_pipelines
 from infra import argocd
 
 # Core Kubernetes Infrastructure
