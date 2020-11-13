@@ -2,4 +2,5 @@
 # Try to keep it sorted alphabetically.
 
 argocd = "1.7.8"
+cilium = "1.9.0"
 tekton = "0.18.0"

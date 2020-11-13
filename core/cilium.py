@@ -12,6 +12,7 @@ def build():
         repo_url="https://helm.cilium.io/",
         chart_name="cilium",
         namespace=namespace,
+        version=versions["cilium"],
         values={},
     )
 
