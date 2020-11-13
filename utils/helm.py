@@ -1,4 +1,7 @@
+import os
 import shutil
+import tempfile
+import yaml
 from subprocess import run, call, PIPE
 
 
@@ -19,7 +22,10 @@ def Chart(
     ).stdout
 
     # TODO: Make sure the helm repo was added successfully.
-    # TODO: Support helm chart values (write a tempfile, delete it when done).
+    values_file, values_file_name = tempfile.mkstemp(suffix=".yml")
+    with open(values_file_name, "w") as f:
+        f.write(yaml.dump(values))
+
     r = run(
         [
             "helm",
@@ -28,11 +34,15 @@ def Chart(
             namespace,
             "--version",
             version,
+            "--values",
+            values_file_name,
             f"{repo_name}/{chart_name}",
         ],
         check=True,
         stdout=PIPE,
     ).stdout
+
+    os.close(values_file)
     run(["helm", "repo", "remove", repo_name], check=True, stdout=PIPE).stdout
 
     return r
