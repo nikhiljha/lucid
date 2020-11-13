@@ -5,7 +5,7 @@ import yaml
 def YAML(url: str, namespace: str):
     r = requests.get(url)
 
-    if (r.status_code != 200):
+    if r.status_code != 200:
         raise Exception(f"Unable to retrieve the YAML for {namespace}.")
 
     t = r.text

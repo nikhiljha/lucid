@@ -9,7 +9,8 @@ namespace = "argocd"
 def build():
     t = hosted.YAML(
         url=f"https://raw.githubusercontent.com/argoproj/argo-cd/v{versions['argocd']}/manifests/install.yaml",
-        namespace=namespace)
+        namespace=namespace,
+    )
 
     return t
 

@@ -1,6 +1,7 @@
 # Why use Python packages when you can use weird hacks instead?
 import sys
-sys.path.append('.')
+
+sys.path.append(".")
 
 # Deployment Infrastructure
 from infra import tekton

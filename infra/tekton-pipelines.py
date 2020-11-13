@@ -9,7 +9,8 @@ namespace = "tekton-pipelines"
 def build():
     t = hosted.YAML(
         url=f"https://storage.googleapis.com/tekton-releases/pipeline/previous/v{versions['tekton']}/release.yaml",
-        namespace=namespace)
+        namespace=namespace,
+    )
 
     return t
 
