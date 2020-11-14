@@ -12,10 +12,10 @@ exposed_ips = [node_ip]
 def transformation(obj):
     # The default Traefik chart's Service is a LoadBalancer in the default namespace
     # We set it to a NodePort, listening on all IPs, in the traefik namespace
-    if obj and obj["kind"] == "Service":
-        obj["spec"]["type"] = "NodePort"
-        obj["metadata"]["namespace"] = namespace
-        obj["spec"]["externalIPs"] = exposed_ips
+    if obj and obj["kind"] == "List":
+        obj["items"][0]["spec"]["type"] = "NodePort"
+        obj["items"][0]["metadata"]["namespace"] = namespace
+        obj["items"][0]["spec"]["externalIPs"] = exposed_ips
     return obj
 
 
