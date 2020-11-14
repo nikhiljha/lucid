@@ -45,4 +45,4 @@ def Chart(
     os.close(values_file)
     run(["helm", "repo", "remove", repo_name], check=True, stdout=PIPE).stdout
 
-    return r
+    return list(yaml.safe_load_all(r))
