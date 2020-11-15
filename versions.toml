@@ -1,7 +1,7 @@
 # This is a pretty simple TOML file to keep track of versions.
 # Try to keep it sorted alphabetically.
 
-argocd = "1.7.8"
+argocd = "2.9.5"
 cilium = "1.9.0"
 prometheus = "11.1.2"
 tekton_pipelines = "0.18.0"
