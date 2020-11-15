@@ -4,5 +4,7 @@
 argocd = "1.7.8"
 cilium = "1.9.0"
 prometheus = "11.1.2"
-tekton = "0.18.0"
+tekton_pipelines = "0.18.0"
+tekton_triggers = "0.9.1"
+tekton_dashboard = "0.10.2"
 traefik = "9.10.1"
