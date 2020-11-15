@@ -12,6 +12,7 @@ def Chart(
     namespace: str,
     version: str,
     values: dict,
+    apis: str = None,
 ):
     if shutil.which("helm") is None:
         print("You must install Helm to use this script.")
@@ -26,18 +27,23 @@ def Chart(
     with open(values_file_name, "w") as f:
         f.write(yaml.dump(values))
 
+    tpl_args = [
+        "helm",
+        "template",
+        "-n",
+        namespace,
+        "--version",
+        version,
+        "--values",
+        values_file_name,
+        "--include-crds",
+    ]
+    if apis:
+        tpl_args.append("--api-versions")
+        tpl_args.append(apis)
+    tpl_args.append(f"{repo_name}/{chart_name}")
     r = run(
-        [
-            "helm",
-            "template",
-            "-n",
-            namespace,
-            "--version",
-            version,
-            "--values",
-            values_file_name,
-            f"{repo_name}/{chart_name}",
-        ],
+        tpl_args,
         check=True,
         stdout=PIPE,
     ).stdout
