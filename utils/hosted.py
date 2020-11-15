@@ -6,7 +6,7 @@ def YAML(url: str, namespace: str) -> list:
     r = requests.get(url)
 
     if r.status_code != 200:
-        raise Exception(f"Unable to retrieve the YAML for {namespace}.")
+        raise Exception(f"Unable to retrieve the YAML for {namespace}. ({url})")
 
     t = r.text
 

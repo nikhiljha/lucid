@@ -1,6 +1,5 @@
 from utils import helm
 from utils import versions
-from utils import output
 
 
 namespace = "prometheus"
