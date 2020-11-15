@@ -37,6 +37,10 @@ def Chart(
         "--values",
         values_file_name,
         "--include-crds",
+        "--name-template",
+        # the helm release name
+        # sometimes used in resource names
+        f"ocf-{namespace}",
     ]
     if apis:
         tpl_args.append("--api-versions")
