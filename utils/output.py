@@ -6,10 +6,10 @@ from zlib import crc32
 
 def dump(data: str, namespace: str):
     # takes an array of dicts, dumps it into a directory
+    run(["mkdir", "-p", f"build/{namespace}"])
     for obj in data:
         # TODO: Make sure it's a valid kubernetes object.
         # TODO: Inject namespace.
-        run(["mkdir", "-p", f"build/{namespace}"])
         try:
             descriptor = obj["metadata"]["name"]
         except (TypeError, KeyError):
