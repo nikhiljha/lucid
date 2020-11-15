@@ -13,7 +13,7 @@ def Chart(
     version: str,
     values: dict,
     apis: str = None,
-):
+) -> list:
     if shutil.which("helm") is None:
         print("You must install Helm to use this script.")
 

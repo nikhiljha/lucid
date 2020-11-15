@@ -2,7 +2,7 @@ import requests
 import yaml
 
 
-def YAML(url: str, namespace: str):
+def YAML(url: str, namespace: str) -> list:
     r = requests.get(url)
 
     if r.status_code != 200:
