@@ -9,7 +9,7 @@ def build():
     t = helm.Chart(
         repo_name="prometheus-community",
         repo_url="https://prometheus-community.github.io/helm-charts",
-        chart_name="prometheus",
+        chart_name="kube-prometheus-stack",
         namespace=namespace,
         version=versions["prometheus"],
         values={
