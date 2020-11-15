@@ -35,6 +35,3 @@ def build():
     )
 
     return t
-
-
-output.dump(build(), namespace)

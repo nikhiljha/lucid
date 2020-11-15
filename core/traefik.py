@@ -64,6 +64,3 @@ def build():
     t = [transformation(x) for x in t]
 
     return t
-
-
-output.dump(build(), namespace)
